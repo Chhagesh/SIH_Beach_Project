@@ -1,0 +1,10 @@
+streamlit
+geopy
+requests
+requests-cache
+pandas
+plotly
+matplotlib
+scikit-learn
+urllib3
+xgboost
