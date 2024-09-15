@@ -13,6 +13,9 @@ import urllib3
 import matplotlib.pyplot as plt
 import pickle
 from sklearn.preprocessing import StandardScaler
+from datetime import datetime
+import pytz
+
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -325,8 +328,10 @@ if (st.session_state['location_data'] and
     st.write(f"**Address:** {location_data['address']}")
     st.write(f"**Coordinates:** {location_data['latitude']}°N, {location_data['longitude']}°E")
 
-    current_hour = datetime.datetime.now().replace(minute=0, second=0, microsecond=0)
-    
+    #current_hour = datetime.datetime.now().replace(minute=0, second=0, microsecond=0)
+    india_tz = pytz.timezone('Asia/Kolkata')
+    current_hour = datetime.now(india_tz).replace(minute=0, second=0, microsecond=0)
+        
     hourly_dataframe = pd.DataFrame(data=weather_data['hourly'])
     hourly_dataframe['Time'] = pd.to_datetime(hourly_dataframe['time'])
     current_weather = hourly_dataframe[hourly_dataframe['Time'] == current_hour]
