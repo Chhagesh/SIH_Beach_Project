@@ -328,9 +328,9 @@ if (st.session_state['location_data'] and
     st.write(f"**Address:** {location_data['address']}")
     st.write(f"**Coordinates:** {location_data['latitude']}°N, {location_data['longitude']}°E")
 
-    #current_hour = datetime.datetime.now().replace(minute=0, second=0, microsecond=0)
-    india_tz = pytz.timezone('Asia/Kolkata')
-    current_hour = datetime.now(india_tz).replace(minute=0, second=0, microsecond=0)
+    current_hour = datetime.datetime.now().replace(minute=0, second=0, microsecond=0)
+    #india_tz = pytz.timezone('Asia/Kolkata')
+    #current_hour = datetime.now(india_tz).replace(minute=0, second=0, microsecond=0)
         
     hourly_dataframe = pd.DataFrame(data=weather_data['hourly'])
     hourly_dataframe['Time'] = pd.to_datetime(hourly_dataframe['time'])
